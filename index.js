@@ -45,7 +45,7 @@ function renderPosts() {
                     <span class="poster-location">${[posts[i].location]}</span>
                 </div>
             </div>
-            <div class="post">
+            <div class="post-img">
                 <img src="${posts[i].post}" alt="">
             </div>
             <div class="tools">
