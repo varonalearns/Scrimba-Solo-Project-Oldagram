@@ -59,9 +59,7 @@ function renderPosts() {
     }
     cardPosts.innerHTML = strPosts
 }
-
 renderPosts()
-
 
 const likeBtn = document.querySelectorAll(".like-btn")
 const likeValue = document.querySelectorAll(".likes")
