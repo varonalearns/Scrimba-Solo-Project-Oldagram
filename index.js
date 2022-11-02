@@ -29,8 +29,6 @@ const posts = [
 ]
 
 let cardPosts = document.getElementById("card-posts")
-
-
 function renderPosts() {
     let strPosts = ``
     for (let i = 0; i < posts.length; i++) {
@@ -49,11 +47,11 @@ function renderPosts() {
                 <img src="${posts[i].post}" alt="">
             </div>
             <div class="tools">
-                <img src="imgs/icon-heart.png" alt="">
+                <img src="imgs/icon-heart.png" alt="" class="like-btn">
                 <img src="imgs/icon-comment.png" alt="">
                 <img src="imgs/icon-dm.png" alt="">
             </div>
-            <div class="likes">${posts[i].likes} likes</div>
+            <div class="likes"><span class="value">${posts[i].likes}</span> likes</div>
             <div class="comment">
                 <p><span>${posts[i].username}</span> ${posts[i].comment}</p>
             </div>
@@ -63,3 +61,29 @@ function renderPosts() {
 }
 
 renderPosts()
+
+
+const likeBtn = document.querySelectorAll(".like-btn")
+const likeValue = document.querySelectorAll(".likes")
+function addLikesByButton() {
+    for(let i = 0; i < likeBtn.length; i++) {
+        likeBtn[i].addEventListener("click", function() {
+            let likeCount = parseInt(likeValue[i].querySelector(".value").textContent, 10)
+            likeCount++
+            likeValue[i].querySelector(".value").textContent = likeCount
+        })
+    }
+}
+addLikesByButton()
+
+const post = document.querySelectorAll(".post-img")
+function addLikesByDblCLick() {
+    for(let i = 0; i < post.length; i++) {
+        post[i].addEventListener('dblclick', function() {
+            let likeCount = parseInt(likeValue[i].querySelector(".value").textContent, 10)
+            likeCount++
+            likeValue[i].querySelector(".value").textContent = likeCount
+        })
+    }
+}
+addLikesByDblCLick()
